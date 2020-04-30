@@ -1,0 +1,152 @@
+<mvc:View
+	controllerName="fonddata.controller.StockMaster"
+	xmlns="sap.m"	
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="stockMaster"	
+		class="sapUiResponsiveContentPadding">
+		<headerContent>
+				<Button
+						icon="sap-icon://nav-back"
+						press="onNavStockSearch" />
+
+			<ToolbarSpacer />
+		
+			<FlexBox	
+				height="auto"
+				width="auto"
+				direction="Column"
+				alignItems="Center"
+				justifyContent="Center">
+				<items>	
+					<HBox>			
+						<Title level="H2" text="{i18n>Title}" class="sapUiTinyMarginEnd"/>	
+					</HBox>		
+				</items>
+			</FlexBox>  							
+				
+			<ToolbarSpacer />
+				
+			<Button
+					icon="sap-icon://home"
+					press="onNavHome" />
+		</headerContent>	
+		<subHeader>
+			<Toolbar>
+				<SearchField
+					id = "fundSearchField"
+					liveChange="onFundSearch"
+					width="100%" />
+			</Toolbar>
+		</subHeader>							
+		<content>	 	
+			<VBox class="sapUiSmallMargin">
+				<HBox id="assetMasterListTitle">
+					<core:Icon 
+						src="{ path: '/Data/0/total_weight_trend', formatter: 'fonddata.utils.Formatter.trendIcon' }"
+						class="sapUiSmallMarginEnd"/>
+						<Title id="stockMasterListTitle" text="{/Data/0/instrumentnamn}"/>						
+				</HBox>
+			
+				<Text text="{i18n>isin}: {/Data/0/isin}" class="sapUiSmallMarginBottom"/>
+				<Text text="{i18n>date}: {/Data/0/kvartalsslut}" />
+				<Text id="stockMasterListLabel" text="{i18n>price}: {path: '/Data/0/kurs_ranta', formatter: 'fonddata.utils.Formatter.numberFormat'} ({ path: '/Data/0/inst_kurs_trend', formatter: 'fonddata.utils.Formatter.trendPct' })" />
+				<Text id="stockMasterListFundsTot" text="{i18n>funds}: {/Data/0/funds} ({ path: '/Data/0/funds_trend', formatter: 'fonddata.utils.Formatter.trendPct' })" class="sapUiSmallMarginBottom" />
+				<Text id="pctNavTot" text="{i18n>weight_total}: {path: '/Data/0/total_weight', formatter: 'fonddata.utils.Formatter.pct'} ({ path: '/Data/0/total_weight_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
+				<Text id="stockMasterListSharesTot" text="{i18n>quantity_total}: {path: '/Data/0/total_shares', formatter: 'fonddata.utils.Formatter.numberFormat'} ({ path: '/Data/0/total_shares_trend', formatter: 'fonddata.utils.Formatter.trendPct' })" />
+				<Text id="stockMasterListValueTot" text="{i18n>market_value_total}: {path: '/Data/0/total_value', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({ path: '/Data/0/total_value_trend', formatter: 'fonddata.utils.Formatter.trendPct' })" />
+			</VBox>	
+			<List id="stockMasterList" 	
+					items="{
+						path: '/Data',
+						sorter: {
+							path: 'weight',
+							descending: true
+					}
+				}"
+				showNoData = "false"
+				busyIndicatorDelay="500"
+				enableBusyIndicator="true"
+				growing="true"
+				growingThreshold="10"
+				growingScrollToLoad="true">	
+<!-- 
+				<headerToolbar>
+					<Toolbar>		
+							<Title id="stockMasterListTitle" text="{/Data/0/instrumentnamn}" class="sapUiSmallMarginEnd" />
+					</Toolbar>
+				</headerToolbar>
+ -->
+ 				<CustomListItem type="Navigation" press="onListItemPressed">
+					<HBox>
+						<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+							<HBox>
+								<core:Icon id="stockHoldingTrend" 
+											src="{ path: 'weight_trend', formatter: 'fonddata.utils.Formatter.trendIcon' }"
+											class="sapUiSmallMarginEnd"/>
+<!-- 	
+								<Title level="H2" text="{firma_fond}"/>
+ -->										
+								<Link level="H2" text="{firma_fond}" href="http://www.fonddata.se/#/fundMaster/{institutnr_fond},%20fundMaster/all"/>
+
+							</HBox>
+							<HBox>
+								<Label text="{kvartalsslut}: "/>	
+								<Label text="{instrumentnamn}" class="sapUiSmallMarginBegin"/>	
+							</HBox>
+							<Label text=""/>
+							<HBox>
+								<Label text="{i18n>weight}: {path: 'weight', formatter: 'fonddata.utils.Formatter.pct'} ({path: 'weight_trend', formatter: 'fonddata.utils.Formatter.trendPct'})"/>
+							</HBox>
+							<HBox>
+								<Label text="{i18n>quantity}: {path: 'antal_instr', formatter: 'fonddata.utils.Formatter.numberFormat'} ({path: 'inst_antal_trend', formatter: 'fonddata.utils.Formatter.trendPct'})"/>
+							</HBox>
+<!-- 							
+							<HBox>
+								<Label text="{i18n>fund_value}: {path: 'marknadsvarde_tot', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({path: 'marknadsvarde_trend', formatter: 'fonddata.utils.Formatter.trendPct'})"/>
+ 							</HBox>
+ --> 							
+							<HBox>
+								<Label text="{i18n>fund_equity}: {path: 'fondformogenhet', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({path: 'fondformogenhet_trend', formatter: 'fonddata.utils.Formatter.trendPct'})"/>
+ 							</HBox>
+						</VBox>
+					</HBox>
+				</CustomListItem>									
+			</List>							
+		</content>
+		<footer>
+			<Toolbar>
+						<Button
+							icon="sap-icon://sort"
+							press="openViewSettingsSort" />
+						<Button
+							icon="sap-icon://filter"
+							press="openViewSettingsFilter" />										
+						<ToolbarSpacer />
+					<FlexBox
+						height="auto"
+						width="100%"
+						direction="Column"	
+						alignItems="Center"
+						justifyContent="Center">
+						<items>	
+<!--
+ 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
+ -->						
+						</items>
+					</FlexBox>  
+						<ToolbarSpacer />
+						<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>																				
+<!-- 
+					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
+ -->																						
+						
+<!-- 
+						<Button
+							icon="sap-icon://download"
+							press="" />
+-->						
+			</Toolbar>
+		</footer>			
+	</Page>
+</mvc:View>

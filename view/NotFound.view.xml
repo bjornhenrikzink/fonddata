@@ -1,0 +1,25 @@
+<mvc:View
+	controllerName="fonddata.controller.NotFound"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<MessagePage
+		title="{i18n>NotFound}"
+		text="{i18n>NotFound.text}"
+		description="{i18n>NotFound.description}"
+		showNavButton="true"
+		navButtonPress="onNavBack"/>
+		<footer>
+			<Toolbar>
+					<FlexBox
+						height="auto"
+						width="100%"
+						direction="Column"
+						alignItems="Center"
+						justifyContent="Center">
+						<items>				
+							<Title level="H2" text="{i18n>Company}"/>
+						</items>
+					</FlexBox>  					
+			</Toolbar>
+		</footer>			
+</mvc:View>

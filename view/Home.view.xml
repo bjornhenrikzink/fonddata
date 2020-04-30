@@ -1,0 +1,273 @@
+<mvc:View
+	controllerName="fonddata.controller.Home"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"	
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" 
+	xmlns:html="http://www.w3.org/1999/xhtml">	
+
+ 	<Page>
+ 		<headerContent>
+			<FlexBox	
+				height="auto"
+				width="100%"
+				direction="Column"
+				alignItems="Center"
+				justifyContent="Center">
+				<items>	
+					<HBox>			
+						<Title level="H2" text="{i18n>Title}"  class="sapUiTinyMarginEnd"/>	
+					</HBox>		
+				</items>
+			</FlexBox>  							
+		</headerContent>	
+		<content>
+		<TileContainer
+			id="tileContainer">
+			
+			<StandardTile
+				icon="{i18n>tile_icon_1}"
+				number="{i18n>tile_number_1}"
+				type="Monitor"
+				title="{i18n>tile_title_1}"
+				info="{i18n>tile_info_1}"
+				press="onNavToStockSearch">
+				<customData>
+     				<core:CustomData key="type" value="all"/>
+   				</customData>				
+			</StandardTile>						
+			<StandardTile
+				icon="{i18n>tile_icon_2}"
+				type="Monitor"
+				title="{i18n>tile_title_2}"
+				press="onNavToStockSearch">
+				<customData>
+     				<core:CustomData key="type" value="all"/>
+   				</customData>				
+			</StandardTile>				
+			<StandardTile
+				icon="{i18n>tile_icon_3}"
+				number="{i18n>tile_number_3}"
+				type="Monitor"
+				title="{i18n>tile_title_3}"
+				info="{i18n>tile_info_3}"
+				press="onNavToFundSearch">
+				<customData>
+     				<core:CustomData key="type" value="all"/>
+   				</customData>				
+			</StandardTile>					
+			<StandardTile
+				icon="{i18n>tile_icon_4}"
+				type="Monitor"
+				title="{i18n>tile_title_4}"
+				press="onNavToFundSearch">
+				<customData>
+     				<core:CustomData key="type" value="all"/>
+   				</customData>				
+			</StandardTile>					
+			<StandardTile
+				icon="{i18n>tile_icon_5}"
+				type="Monitor"
+				title="{i18n>tile_title_5}"
+				press="onNavToFundSearch">
+				<customData>
+     				<core:CustomData key="type" value="new"/>
+   				</customData>				
+			</StandardTile>						
+			<StandardTile
+				icon="{i18n>tile_icon_6}"
+				type="Monitor"
+				title="{i18n>tile_title_6}"
+				press="onNavToFundSearch">
+				<customData>
+     				<core:CustomData key="type" value="hot"/>
+   				</customData>				
+			</StandardTile>					
+			<StandardTile
+				icon="{i18n>tile_icon_7}"
+				info="{i18n>tile_info_7}"
+				type="Monitor"
+				title="{i18n>tile_title_7}"/>	
+
+			<StandardTile
+				type="Monitor"
+				info="{i18n>appAbout}"
+				number="FondData"
+				press="openAbout"/>			
+				
+<!--			
+
+			<CustomTile class="tileLayout">
+				<content>
+					<GenericTile
+						header="{i18n>tile_title_1}"
+						mode="ContentMode"
+						press="onNavToStockSearch"
+						frameType="TwoThirds">
+						<tileContent>
+							<TileContent footer="{i18n>tile_info_1}">
+								<content>
+									<NumericContent icon="{i18n>tile_icon_1}" value="{i18n>tile_number_1}"/>
+								</content>
+							</TileContent>
+						</tileContent>	
+						<customData>
+		     				<core:CustomData key="type" value="all"/>
+		   				</customData>												
+				 	</GenericTile>					
+				</content>
+			</CustomTile>	
+
+			<CustomTile class="sapUiNoMarginTop sapUiNoMarginBottom sapUiNoMarginBegin sapUiNoMarginEnd sapMTile">
+			<CustomTile>
+				<content>
+					<GenericTile
+						header="{i18n>tile_title_2}"
+						mode="ContentMode"
+						press="onNavToStockSearch">
+						<tileContent>
+							<TileContent>
+								<content>
+									<NumericContent icon="{i18n>tile_icon_2}" value=" "/>
+								</content>
+							</TileContent>
+						</tileContent>	
+						<customData>
+		     				<core:CustomData key="type" value="all"/>
+		   				</customData>												
+				 	</GenericTile>					
+				</content>
+			</CustomTile>	
+
+			<CustomTile class="sapUiNoMarginTop sapUiNoMarginBottom">
+				<content>
+				<SlideTile class="sapUiNoMarginTop sapUiNoMarginBottom">
+					<tiles>				
+						<GenericTile class="sapUiNoMarginTop sapUiNoMarginBottom"
+							header="{i18n>ad_tile_header_1}"
+							subheader="{i18n>ad_tile_subheader_1}">
+							<tileContent>
+								<TileContent>
+									<content>
+										<Image src="{i18n>ad_tile_icon_1}" height="auto" width="100%" press="openAd"/>
+									</content>
+								</TileContent>
+							</tileContent>	
+						</GenericTile>
+						<GenericTile class="sapUiNoMarginTop sapUiNoMarginBottom"
+							header="{i18n>ad_tile_header_2}"
+							subheader="{i18n>ad_tile_subheader_2}" 
+							headerImage="{i18n>ad_tile_icon_2}"/>
+					</tiles>
+				</SlideTile>
+				</content>
+			</CustomTile>	
+
+			<CustomTile class="sapUiNoMarginTop sapUiNoMarginBottom">
+				<content>
+				<SlideTile class="sapUiNoMarginTop sapUiNoMarginBottom">
+					<tiles>				
+						<GenericTile class="sapUiNoMarginTop sapUiNoMarginBottom"
+							header="{i18n>slide_tile_header_1}"
+							subheader="{i18n>slide_tile_subheader_1}" 
+							headerImage="{i18n>slide_tile_icon_1}" 
+							mode="HeaderMode" />
+					
+						<GenericTile class="sapUiNoMarginTop sapUiNoMarginBottom"
+							header="{i18n>slide_tile_header_1}"
+							subheader="{i18n>slide_tile_subheader_1}" 
+							headerImage="{i18n>slide_tile_icon_1}" 
+							mode="HeaderMode" />
+					</tiles>
+				</SlideTile>
+				</content>
+			</CustomTile>		
+
+			<CustomTile>
+				<content>
+				<SlideTile>
+					<tiles>				
+						<GenericTile
+							header="{i18n>ad_tile_header_1}"
+							subheader="{i18n>ad_tile_subheader_1}">
+							<tileContent>
+								<TileContent>
+									<content>
+										<Image src="{i18n>ad_tile_icon_1}" height="auto" width="100%" press="openAd"/>
+									</content>
+								</TileContent>
+							</tileContent>	
+						</GenericTile>
+						<GenericTile
+							header="{i18n>ad_tile_header_2}"
+							subheader="{i18n>ad_tile_subheader_2}" 
+							headerImage="{i18n>ad_tile_icon_2}"/>
+					</tiles>
+				</SlideTile>
+				</content>
+			</CustomTile>	
+	
+ -->
+
+<!-- 
+			<SlideTile class="sapUiTinyMarginTop">
+				<tiles>				
+				<StandardTile
+					icon="{i18n>ad_tile_icon_1}"
+					number="{i18n>ad_tile_number_1}"
+					title="{i18n>ad_tile_title_1}"
+					type="Monitor"/>
+				<StandardTile
+					icon="{i18n>ad_tile_icon_2}"
+					number="{i18n>ad_tile_number_2}"
+					title="{i18n>ad_tile_title_2}"				
+					type="Monitor"/>
+				<StandardTile
+					icon="{i18n>ad_tile_icon_3}"
+					number="{i18n>ad_tile_number_3}"
+					title="{i18n>ad_tile_title_3}"				
+					type="Monitor"/>
+				<StandardTile
+					icon="{i18n>ad_tile_icon_4}"
+					number="{i18n>ad_tile_number_4}"
+					title="{i18n>ad_tile_title_4}"				
+					type="Monitor"/>
+					
+				</tiles>
+			</SlideTile>
+ -->						
+		</TileContainer>
+		</content>
+		
+		<footer>
+			<Toolbar>
+					<Switch id="themeSwitch" state="true" customTextOn=" " customTextOff=" " class="sapUiTinyMarginBegin" change="changeTheme">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</Switch>
+<!-- 
+					<FlexBox
+						height="auto"
+						width="100%"
+						direction="Column"
+						alignItems="Center"
+						justifyContent="Center">
+						
+						
+						<items>	
+ 													<Title level="H2" text="{i18n>Company}"/>		
+ 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
+				
+						</items>
+					</FlexBox>  					
+ -->
+					<ToolbarSpacer />	
+					<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>		
+<!-- 
+					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
+ -->																						
+			</Toolbar>
+		</footer>		
+	</Page>
+</mvc:View>

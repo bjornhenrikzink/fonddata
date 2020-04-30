@@ -1,0 +1,126 @@
+	<mvc:View
+	controllerName="fonddata.controller.StockSearch"
+	xmlns="sap.m"	
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+<!-- 	
+	<Page id="stockSearchPage"	
+		class="sapUiResponsiveContentPadding">
+		
+ -->		
+	<Page id="stockSearchPage" 
+		  class="sapUiResponsiveContentPadding">					
+		<headerContent>
+				<Button
+						icon="sap-icon://nav-back"
+						press="onNavHome" />
+
+			<ToolbarSpacer />
+		
+			<FlexBox	
+				height="auto"
+				width="auto"
+				direction="Column"
+				alignItems="Center"
+				justifyContent="Center">
+				<items>	
+					<HBox>			
+						<Title level="H2" text="{i18n>Title}" class="sapUiTinyMarginEnd"/>	
+					</HBox>		
+				</items>
+			</FlexBox>  							
+				
+			<ToolbarSpacer />
+					
+			<Button
+					icon="sap-icon://home"
+					press="onNavHome" />
+		</headerContent>	
+		<subHeader>
+			<Toolbar>
+				<SearchField
+					id="stockSearchField"
+					liveChange="onStockSearch"
+					width="100%" />
+			</Toolbar>
+		</subHeader>					
+		<content>
+ 			<List 	
+ 					id="stockSearchList"
+					items="{
+						path: '/Stocks'
+					}"
+				showNoData = "false"	
+				busyIndicatorDelay="1000"
+				enableBusyIndicator="true"
+				growing="true"
+				growingThreshold="10"
+				growingScrollToLoad="true"				
+				>					
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>StockSearch.list.header} {count(/Stocks)}" level="H2" />						
+						<Label id="listCount" text="" type="{
+									type: 'sap.ui.model.type.Float',
+									formatOptions: {
+										maxFractionDigits: 2,
+										groupingEnabled: true,
+										groupingSeparator: ' ',
+										decimalSeparator: ','
+									}
+								}" />
+					</Toolbar>
+				</headerToolbar>	
+				<CustomListItem type="Navigation" press="onStockSearchListItemPressed">
+						<VBox  class="sapUiSmallMarginBegin" >
+							<HBox id="assetMasterListTitle">
+								<core:Icon 
+									src="{ path: 'total_weight_trend', formatter: 'fonddata.utils.Formatter.trendIcon' }"
+									class="sapUiSmallMarginTop sapUiSmallMarginEnd"/>
+								<Title text="{instrumentnamn}" class="sapUiSmallMarginTop" level="H2" />
+							</HBox>
+						
+							<Text text="{i18n>isin}: {isin}" class="sapUiSmallMarginBottom"/>
+<!-- 
+							<Text text="{i18n>weight_total}: {total_weight} ({ path: 'total_weight_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
+ -->							
+							<Text text="{i18n>weight_total}: {path: 'total_weight', formatter: 'fonddata.utils.Formatter.pct'} ({ path: 'total_weight_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
+							<Text text="{i18n>market_value_total}: {path: 'total_value', formatter: 'fonddata.utils.Formatter.numberFormat'} ({ path: 'total_value_trend', formatter: 'fonddata.utils.Formatter.trendPct' })" class="sapUiSmallMarginBottom"/>							
+						</VBox>
+				</CustomListItem>														
+<!-- 														
+				<StandardListItem
+					title="{path: 'instrumentnamn', type: 'sap.ui.model.type.String'}"	
+					description="{path: 'isin', formatter: 'fonddata.utils.StringFormatter.stringFormat'}"
+					type="Navigation"
+					press="onStockSearchListItemPressed"
+					iconDensityAware="false"
+					iconInset="false"/>
+ -->					
+			</List>																					
+		</content>
+		<footer>
+			<Toolbar>							
+					<FlexBox
+						height="auto"
+						width="100%"
+						direction="Column"
+						alignItems="Center"
+						justifyContent="Center">
+						<items>		
+<!--
+ 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
+							<Title level="H2" text="{i18n>Company}"/>	
+ -->						
+								
+						</items>
+					</FlexBox>  
+					<ToolbarSpacer />
+					<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>														
+<!-- 
+					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
+ -->																							
+			</Toolbar>
+		</footer>			
+	</Page>
+</mvc:View>

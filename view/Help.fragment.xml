@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		title="{i18n>help}"
+		class="sapUiContentPadding"
+		placement="Top">
+		<Text text="{i18n>HomeHelpText}" />
+<!-- 
+		<footer>
+			<Toolbar>
+				<Label text="Help" />
+			</Toolbar>
+		</footer>
+ -->		
+	</Popover>
+</core:FragmentDefinition>

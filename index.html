@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta charset="UTF-8">
+<!--		
+		<link rel="icon" 
+				type="image/png" 
+				href="http://www.fonddata.se/images/FondDataLogo.png">	
+
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-theme="sap_hcb"
+
+-->				
+		<title>FondData (Beta)</title>
+		<script
+				id="sap-ui-bootstrap"
+				src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-bindingSyntax="complex"
+				data-sap-ui-xx-bindingsyntax="complex" 
+				data-sap-ui-compatVersion="edge"
+				data-sap-ui-preload="async"
+				data-sap-ui-resourceroots='{
+					"fonddata": "./"
+				}'>
+		</script>		
+		<style>
+			.yellow	{ background-color : rgba(255, 255, 0, 0.35) }
+			.cyan {  background-color : rgba(0, 255, 255, 0.28) }  
+			.green {  background-color : rgba(0, 128, 0, 0.22) }  
+			.red {  background-color : rgba(255, 0, 0, 0.13) }  
+		</style>
+		<script>
+
+/*		
+	    sap.ui.getCore().attachInit(function () {
+	        new sap.m.Text({
+	            text: "www.fonddata.se"
+	        }).placeAt("init");
+	    });
+*/	    
+	    
+		sap.ui.getCore().attachInit(function () {
+				sap.ui.require([
+					"sap/m/Shell",
+					"sap/ui/core/ComponentContainer"
+				], function (Shell, ComponentContainer) {
+					new Shell({
+						app: new ComponentContainer({
+							name: "fonddata",
+							height: "100%"
+						})
+					}).placeAt("content");
+				});
+			});		
+		</script>
+	</head>
+	<body class="sapUiBody">	
+	<div id="content"></div>
+	</body>
+</html>

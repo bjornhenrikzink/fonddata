@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		title="{i18n>Company}"
+		class="sapUiContentPadding"
+		placement="Top">
+		<VBox>
+		<Text text="{i18n>companyText}" />
+		<Link text="info@fonddata.se" href="mailto:info@fonddata.se" />
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

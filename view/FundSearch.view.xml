@@ -1,0 +1,103 @@
+<mvc:View
+	controllerName="fonddata.controller.FundSearch"
+	xmlns="sap.m"	
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="fundSearchPage"	
+		class="sapUiResponsiveContentPadding">	
+		<headerContent>
+			<Button
+				icon="sap-icon://nav-back"
+				press="onNavHome" />
+				
+			<ToolbarSpacer />
+		
+			<FlexBox	
+				height="auto"
+				width="auto"
+				direction="Column"
+				alignItems="Center"
+				justifyContent="Center">
+				<items>	
+					<HBox>			
+						<Title level="H2" text="{i18n>Title}" class="sapUiTinyMarginEnd"/>	
+					</HBox>		
+				</items>
+			</FlexBox>  							
+				
+			<ToolbarSpacer />
+
+			<Button
+					icon="sap-icon://home"
+					press="onNavHome" />
+		</headerContent>				
+		<subHeader>
+			<Toolbar>
+				<SearchField
+					id = "fundSearchField"
+					liveChange="onFundSearch"
+					width="100%" />
+			</Toolbar>
+		</subHeader>					
+		<content>
+ 			<List 	
+ 					id="fundSearchList"
+					items="{path: '/Funds'}"
+				showNoData = "false"	
+				busyIndicatorDelay="50"
+				enableBusyIndicator="true"
+				growing="true"
+				growingThreshold="10"
+				growingScrollToLoad="true"				
+				>								
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>funds}" level="H2" />
+						<Label id="listCount" text=""/>
+					</Toolbar>
+				</headerToolbar>															
+				<CustomListItem type="Navigation" press="onFundSearchListItemPressed">
+						<VBox  class="sapUiSmallMarginBegin" >
+							<HBox id="assetMasterListTitle">
+								<core:Icon 
+									src="{ path: 'andelsvarde_trend', formatter: 'fonddata.utils.Formatter.trendIcon' }"
+									class="sapUiSmallMarginTop sapUiSmallMarginEnd"/>
+								<Title text="{firma_fond}" class="sapUiSmallMarginTop" level="H2" />								
+							</HBox>
+						
+							<Text text="{i18n>asset_value}: {path: 'andelsvarde', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({ path: 'andelsvarde_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
+							<Text text="{i18n>fund_equity}: {path: 'fondformogenhet', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({ path: 'fondformogenhet_trend', formatter: 'fonddata.utils.Formatter.trendPct' })" class="sapUiSmallMarginBottom"/>
+						</VBox>
+				</CustomListItem>									
+					
+			</List>																					
+		</content>	
+		<footer>
+			<Toolbar>				
+					<Button
+							icon="sap-icon://sort"
+							press="onFundSort" /> 	
+					<ToolbarSpacer />
+							
+					<FlexBox
+						height="auto"
+						width="100%"
+						direction="Column"
+						alignItems="Center"
+						justifyContent="Center">
+						<items>	
+<!--
+ 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
+ -->						
+						</items>
+					</FlexBox>  
+					<ToolbarSpacer />
+					
+					<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>														
+<!-- 
+					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
+ -->																								
+			</Toolbar>
+		</footer>			
+	</Page>
+</mvc:View>

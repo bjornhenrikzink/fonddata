@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		id="sortAndFilterSettings"
+		title="{i18n>Master.viewsettingsdialog}"
+		sortDescending="true"
+		confirm="handleConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>weight}" key="weight" selected="true"/>
+			<ViewSettingsItem text="{i18n>weight_trend}" key="weight_trend" />
+			<ViewSettingsItem text="{i18n>quantity}" key="antal_instr" />
+			<ViewSettingsItem text="{i18n>quantity_trend}" key="inst_antal_trend"/>
+			<ViewSettingsItem text="{i18n>asset_value}" key="andelsvarde" />
+			<ViewSettingsItem text="{i18n>asset_value_trend}" key="andelsvarde_trend" />
+			<ViewSettingsItem text="{i18n>fund_equity}" key="fondformogenhet" />
+			<ViewSettingsItem text="{i18n>fund_equity_trend}" key="fondformogenhet_trend" />
+		</sortItems>
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>up_neutral_down}">
+				<items>
+					<ViewSettingsItem text="{i18n>up}" key="up" />
+					<ViewSettingsItem text="{i18n>neutral}" key="neutral" />
+					<ViewSettingsItem text="{i18n>down}" key="down" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>new_sold}">
+				<items>
+					<ViewSettingsItem text="{i18n>new}" key="new" />
+					<ViewSettingsItem text="{i18n>sold}" key="sold" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

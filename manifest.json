@@ -1,0 +1,112 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "fonddata",
+		"type": "application",
+		"i18n": "utils/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal"]
+  	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "fonddata.view.App",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": { }
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "fonddata.utils.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "fonddata.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+         	}, {	
+				"pattern": "stockSearch/{type}",
+				"name": "stockSearch",
+				"target": "stockSearch"
+         	}, {
+				"pattern": "fundSearch/{type}",
+				"name": "fundSearch",
+				"target": "fundSearch"
+			}, {
+				"pattern": "stockMaster/{stock}, stockMaster/{type}",
+				"name": "stockMaster",
+				"target": "stockMaster"
+			}, {
+				"pattern": "fundMaster/{fund}, fundMaster/{type}",
+				"name": "fundMaster",
+				"target": "fundMaster"
+			}, {
+				"pattern": "detail/{data_id},detail/{isin},detail/{institutnr_fond}",
+				"name": "detail",
+				"target": "detail"
+			}],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel" : 1
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"fundSearch": {
+					"viewPath": "fonddata.view",
+					"viewName": "FundSearch",
+					"viewLevel" : 2
+				},
+				"stockSearch": {
+					"viewPath": "fonddata.view",
+					"viewName": "StockSearch",
+					"viewLevel" : 2
+				},
+				"stockMaster": {
+					"viewName": "StockMaster",
+					"viewLevel" : 3
+				},
+				"fundMaster": {
+					"viewName": "FundMaster",
+					"viewLevel" : 3
+				},
+				"detail": {
+					"viewName": "Detail",
+					"viewLevel" : 4
+				}
+			}
+		}
+	}
+}

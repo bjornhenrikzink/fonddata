@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		title="{i18n>Sort}"	
+		sortDescending="true"
+		confirm="handleConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>weight_total}" key="totaL_weight" selected="true"/>
+			<ViewSettingsItem text="{i18n>weight_total_trend}" key="total_weight_trend" />
+			<ViewSettingsItem text="{i18n>market_value_total}" key="total_value" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

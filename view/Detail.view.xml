@@ -1,0 +1,161 @@
+<mvc:View
+	controllerName="fonddata.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	busyIndicatorDelay="0">
+	<Page
+		id="detailPage"
+		class="sapUiResponsiveContentPadding">
+		<headerContent>								
+				<Button
+						icon="sap-icon://nav-back"
+						press="onNavBack" />
+
+			<ToolbarSpacer />
+		
+			<FlexBox	
+				height="auto"
+				width="auto"
+				direction="Column"
+				alignItems="Center"
+				justifyContent="Center">
+				<items>	
+					<HBox>			
+						<Title level="H2" text="{i18n>Title}" class="sapUiTinyMarginEnd"/>	
+					</HBox>		
+				</items>
+			</FlexBox>  							
+				
+			<ToolbarSpacer />
+				
+			<Button
+					icon="sap-icon://home"
+					press="onNavHome" />
+		</headerContent>	
+		<content>	
+ 		<Panel headerText="{i18n>Detail.header} {/Info/0/firma_fond} ({/Data/0/instrumentnamn})" class="sapUiResponsiveMargin" width="auto">
+    		<content> 
+	<Table id="idStockTable"
+		inset="false"
+		fixedLayout = "true"
+		items="{
+			path: '/Data',
+			sorter: {
+				path: 'kvartalsslut',
+				descending: true
+			}
+		}">
+		<columns>
+			<Column
+				hAlign="Left">
+				<Text text="{i18n>date}" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>weight}" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>weight_trend}" />
+			</Column>			
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>quantity}" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>quantity_trend}" />
+			</Column>			
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>price}" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>price_trend}" />
+			</Column>			
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>market_value}" />
+			</Column>			
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Right">
+				<Text text="{i18n>market_value_trend}" />
+			</Column>				
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						title="{kvartalsslut}" />					
+					<Text text="{path: 'weight', formatter: 'fonddata.utils.Formatter.pct'}" />
+					<Text text="{path: 'weight_trend', formatter: 'fonddata.utils.Formatter.trendPct'}" />
+					<Text text="{path: 'antal_instr', formatter: 'fonddata.utils.Formatter.numberFormat'}" />
+					<Text text="{ path: 'inst_antal_trend', formatter: 'fonddata.utils.Formatter.trendPct' }" />
+					<Text text="{ path: 'kurs_ranta', formatter: 'fonddata.utils.Formatter.numberFormat'}" />
+					<Text text="{ path: 'inst_kurs_trend', formatter: 'fonddata.utils.Formatter.trendPct' }" />
+					<ObjectNumber
+							number="{
+									path: 'marknadsvarde',
+									type: 'sap.ui.model.type.Float',
+									formatOptions: {
+										groupingEnabled: true,
+										groupingSeparator: ' ',
+										decimalSeparator: ','
+									},
+									state: 'None'
+							}"
+							unit="SEK" />			
+					<Text text="{ path: 'inst_marknadsvarde_trend', formatter: 'fonddata.utils.Formatter.trendPct' }" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>   			
+    		</content>
+  		</Panel>			 	
+		</content>
+		<footer>
+			<Toolbar>				
+					<FlexBox
+						height="auto"
+						width="100%"
+						direction="Column"
+						alignItems="Center"
+						justifyContent="Center">
+						<items>				
+<!--
+ 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
+ -->						
+ 
+						</items>
+					</FlexBox>  	
+					<ToolbarSpacer />
+					
+					<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>																			
+<!-- 
+					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
+ -->																						
+							
+			</Toolbar>
+		</footer>		
+	</Page>
+</mvc:View>
