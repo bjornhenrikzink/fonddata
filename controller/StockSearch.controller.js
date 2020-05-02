@@ -25,7 +25,7 @@
 			var oArgs = oEvent.getParameter("arguments");
 			this._type = oArgs.type;
 			
-			var url = "http://zink.re/stockinfund/stocks/index.php";
+			var url = "http://zink.re/fonddata/stocks/index.php";
 
 			if (this._type == "hot") {
 				url += "?type=hot";	

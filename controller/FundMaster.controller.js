@@ -83,7 +83,7 @@ sap.ui.define([
 			var fund = oArgs.fund;
 			this._type = oArgs.type;
 			
-			var url = "http://zink.re/stockinfund/data/index.php";
+			var url = "http://zink.re/fonddata/data/index.php";
 			
 			if(fund != null) {
 				url += "?funds[]=" + fund;

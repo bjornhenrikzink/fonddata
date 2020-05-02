@@ -81,7 +81,7 @@ sap.ui.define([
 			var stock = oArgs.stock;
 			this._type = oArgs.type;
 						
-			var url = "http://zink.re/stockinfund/data/index.php";
+			var url = "http://zink.re/fonddata/data/index.php";
 			
 			if(stock != null) {
 				url += "?stocks[]=" + stock;
@@ -97,7 +97,7 @@ sap.ui.define([
 			
 		    var oBinding = this.getView().byId("stockMasterList").getBinding("items");		    
 		    
-		    var sumUrl = "http://zink.re/stockinfund/data/index.php";
+		    var sumUrl = "http://zink.re/fonddata/data/index.php";
 
 			if(stock != null) {
 				sumUrl += "?sumstocks[]=" + stock;

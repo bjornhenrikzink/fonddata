@@ -20,7 +20,7 @@ sap.ui.define([
 			var isin = oArgs.isin;
 			var institutnr_fond = oArgs.institutnr_fond;
 						
-			var url = "http://zink.re/stockinfund/details/index.php?stocks[]=" + oArgs.isin + "&funds[]=" + institutnr_fond;
+            var url = "http://zink.re/fonddata/details/index.php?stocks[]=" + oArgs.isin + "&funds[]=" + institutnr_fond;
 			
 //			MessageToast.show(url, {
 //				width: "auto"

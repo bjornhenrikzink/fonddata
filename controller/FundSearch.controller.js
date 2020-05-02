@@ -34,7 +34,7 @@ sap.ui.define([
 			var oArgs = oEvent.getParameter("arguments");
 			this._type = oArgs.type;
 			
-			var url = "http://zink.re/stockinfund/funds/index.php";
+			var url = "http://zink.re/fonddata/funds/index.php";
 
 			if (this._type == "hot") {
 				url += "?type=hot";	
