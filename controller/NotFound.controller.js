@@ -29,7 +29,5 @@ sap.ui.define([
 			// call the parent's onNavBack
 			BaseController.prototype.onNavBack.apply(this, arguments);
 		}
-
 	});
-
 });

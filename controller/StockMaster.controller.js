@@ -9,8 +9,8 @@ sap.ui.define([
 	"use strict";
 	
 	var _type = null;
-//	var _aFilter = [];
-//	var _oSearchFilter;
+    //	var _aFilter = [];
+    //	var _oSearchFilter;
 	
 	return BaseController.extend("fonddata.controller.StockMaster", {
 
@@ -87,18 +87,15 @@ sap.ui.define([
 				url += "?stocks[]=" + stock;
 			}
 									
-//			MessageToast.show(url, {
-//			width: "auto"
-//			});
+            // MessageToast.show(url, {
+            // width: "auto"
+            // });
 			
 			var model = new sap.ui.model.json.JSONModel(url);
 			model.setSizeLimit(99999);
 			this.getView().setModel(model);	
 			
-		    var oBinding = this.getView().byId("stockMasterList").getBinding("items");
-//		    oBinding.attachChange(function() {
-//			    this.getView().byId("listCount").setText("(" + oBinding.getLength() + " funds)");
-//		    }.bind(this));			    
+		    var oBinding = this.getView().byId("stockMasterList").getBinding("items");		    
 		    
 		    var sumUrl = "http://zink.re/stockinfund/data/index.php";
 
@@ -113,25 +110,17 @@ sap.ui.define([
 		    this.getView().byId("stockMasterListFundsTot").setModel(sumModel);
 		    this.getView().byId("stockMasterListSharesTot").setModel(sumModel);
 		    this.getView().byId("stockMasterListValueTot").setModel(sumModel);
-		    
-//		    var antal_instr_tot_prev = sumModel.getProperty("/Data/0/antal_instr_tot");
-//		    MessageToast.show(antal_instr_tot_prev);
-//		    var sumData = sumModel.getProperty("/Data");
-//		      
-//	        for(var i = 0; i < sumData.length; i++) {
-//				MessageToast.show(sumData[i].antal_instr_tot);
-//	        }
 		    	    
 		    var filterItems = [];
 
 		    // If sort and filter is already set reapply them
 			// For example, after navigating back
 			if (this._oDialog) {
-// Filter items
+                // Filter items
 				var viewSettings = this._oDialog;
 				filterItems = viewSettings.getSelectedFilterItems();
 
-// Sort items		
+                // Sort items		
 				var sortItemId = viewSettings.getSelectedSortItem();
 				var sortItems = viewSettings.getSortItems();
 				
@@ -149,7 +138,6 @@ sap.ui.define([
 			}
 			
 			var sQuery = this.getView().byId("fundSearchField").getValue();
-
 			this.filter(filterItems, sQuery);
 		},
 		
@@ -216,7 +204,6 @@ sap.ui.define([
 			});			
 		},
 
-		
 		onExit : function () {
 			if (this._oHelpPopover) {
 				this._oHelpPopover.destroy();
@@ -240,7 +227,6 @@ sap.ui.define([
 		            bundleUrl : "utils/i18n.properties"
 		        });
 		        this._oDialog.setModel(i18nModel, "i18n");			
-//				this._oDialog.setModel(this.getView().getModel());
 
 		        // toggle compact style
 				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
@@ -258,7 +244,6 @@ sap.ui.define([
 		        });
 		        
 		        this._oDialog.setModel(i18nModel, "i18n");			
-//				this._oDialog.setModel(this.getView().getModel());
 		        
 				// toggle compact style
 				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
@@ -268,17 +253,17 @@ sap.ui.define([
 		},
 
 		handleConfirm: function (oEvent) {			
-// Sort			
+            // Sort			
 			var sortItem = oEvent.getParameters().sortItem;
 			
 			if (sortItem) {
 				var sortItemKey = sortItem.getProperty("key");
 				var sortDescending = oEvent.getParameters().sortDescending;
 				this.sort(sortItemKey, sortDescending);
-//				MessageToast.show("Sorting: " + sortItem.getProperty("key") + " " + sortItem.getProperty("text"));
+                // MessageToast.show("Sorting: " + sortItem.getProperty("key") + " " + sortItem.getProperty("text"));
 			}
 			
-// Filters
+            // Filters
 			var filterItems = [];
 			filterItems = oEvent.getParameters().filterItems;
 			

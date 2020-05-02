@@ -35,7 +35,7 @@ sap.ui.define([
 
 			for(var i = 0; i < filterItems.length; i++) {  				
 				var filterKey = filterItems[i].getProperty("key");
-//				var desc = true;
+				// var desc = true;
 	
 				if (filterKey == "new") {
 					var filter = new Filter("inst_antal_trend", sap.ui.model.FilterOperator.EQ, "0.00");					
@@ -55,7 +55,7 @@ sap.ui.define([
 				if (filterKey == "down") {
 					var filter = new Filter("weight_trend", sap.ui.model.FilterOperator.BT, "0.02", "0.99");														
 					aFilters.push(filter);
-//					var desc = false;
+				    //	var desc = false;
 				}
 
 				if (filterKey == "sold") {
@@ -75,12 +75,7 @@ sap.ui.define([
 			var list = this.getView().byId("fundMasterList");
 			var binding = list.getBinding("items");
 			binding.filter(aFilters, "Application");
-			 
-//			// update list binding
-//			var list = this.getView().byId("fundMasterList");
-//			var binding = list.getBinding("items");
-//			binding.filter(aFilters, "Application");
-//			this.sort("weight_trend", desc);			
+			// this.sort("weight_trend", desc);			
 		},
 		
 		_onRouteMatched : function (oEvent) {
@@ -102,18 +97,18 @@ sap.ui.define([
 			    this.getView().byId("listCount").setText(": " + oBinding.getLength());
 		    }.bind(this));			
 		    
-//			this.getView().byId("stockSearchField").setValue("");
+            // this.getView().byId("stockSearchField").setValue("");
 
 		    var filterItems = [];
 
 		    // If sort and filter is already set reapply them
 			// For example, after navigating back
 			if (this._oDialog) {
-// Filter items
+                // Filter items
 				var viewSettings = this._oDialog;
 				filterItems = viewSettings.getSelectedFilterItems();
 
-// Sort items		
+                // Sort items		
 				var sortItemId = viewSettings.getSelectedSortItem();
 				var sortItems = viewSettings.getSortItems();
 				
@@ -136,19 +131,6 @@ sap.ui.define([
 		},
 
 		onStockSearch : function (oEvt) { 
-//			// add filter for search
-//			var aFilters = [];
-//			var sQuery = oEvt.getSource().getValue();
-//			if (sQuery && sQuery.length > 0) {
-//				var filter = new Filter("instrumentnamn", sap.ui.model.FilterOperator.Contains, sQuery);
-//				aFilters.push(filter);
-//			}
-// 
-//			// update list binding
-//			var list = this.getView().byId("fundMasterList");
-//			var binding = list.getBinding("items");
-//			binding.filter(aFilters, "Application");
-
 			var sQuery = oEvt.getSource().getValue();
 			
 		    var filterItems = [];
@@ -186,7 +168,6 @@ sap.ui.define([
 		        });
 		        this._oDialog.setModel(i18nModel, "i18n");					
 			}
-//			this._oDialog.setModel(this.getView().getModel());
 			// toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
 			this._oDialog.open();
@@ -201,33 +182,26 @@ sap.ui.define([
 		        });
 		        this._oDialog.setModel(i18nModel, "i18n");					
 			}
-//			this._oDialog.setModel(this.getView().getModel());
 			// toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
 			this._oDialog.open("filter");
 		},
 
 		handleConfirm: function (oEvent) {			
-// Sort			
+            // Sort			
 			var sortItem = oEvent.getParameters().sortItem;
 			
 			if (sortItem) {
 				var sortItemKey = sortItem.getProperty("key");
 				var sortDescending = oEvent.getParameters().sortDescending;
 				this.sort(sortItemKey, sortDescending);
-//				MessageToast.show("Sorting: " + sortItem.getProperty("key") + " " + sortItem.getProperty("text"));
+                // MessageToast.show("Sorting: " + sortItem.getProperty("key") + " " + sortItem.getProperty("text"));
 			}
 			
-//// Filter
-//			var filterItems = oEvent.getParameters().filterItems;
-//			this.filter(filterItems);
-			
-// Filters
+            // Filters
 			var filterItems = [];
 			filterItems = oEvent.getParameters().filterItems;
-			
 			var sQuery = this.getView().byId("stockSearchField").getValue();
-
 			this.filter(filterItems, sQuery);
 			
 		},
@@ -282,8 +256,6 @@ sap.ui.define([
 		},
 		
 		onNavFundSearch: function (oEvent) {
-//			this.getRouter().navTo("fundSearch", {}, true /*no history*/);
-			
 			this.getRouter().navTo("fundSearch",
 					{ type: this._type}, 
 					true /*no history*/);

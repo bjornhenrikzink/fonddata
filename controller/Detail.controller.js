@@ -20,7 +20,6 @@ sap.ui.define([
 			var isin = oArgs.isin;
 			var institutnr_fond = oArgs.institutnr_fond;
 						
-//			var url = "http://zink.re/stockinfund/data/index.php?dataid[]=" + oArgs.data_id;
 			var url = "http://zink.re/stockinfund/details/index.php?stocks[]=" + oArgs.isin + "&funds[]=" + institutnr_fond;
 			
 //			MessageToast.show(url, {
@@ -29,10 +28,7 @@ sap.ui.define([
 
 			var model = new sap.ui.model.json.JSONModel(url);
 			this.getView().setModel(model);
-			model.setSizeLimit(99999);
-					
-//			var oVerticalLayout = this.getView().byId('vLayout');
-//			oVerticalLayout.bindElement("/Data/0");		
+			model.setSizeLimit(99999);					
 		},
 
 		_onBindingChange : function (oEvent) {

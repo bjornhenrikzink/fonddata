@@ -4,35 +4,15 @@
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="masterPage"	
-		class="sapUiResponsiveContentPadding">
+		class="sapUiResponsiveContentPadding"
+		  title="{i18n>Title}"
+		  showNavButton="true"
+          navButtonPress="onNavFundSearch">					
 		<headerContent>
-
-				<Button
-						icon="sap-icon://nav-back"
-						press="onNavFundSearch" />
-
-			<ToolbarSpacer />
-		
-			<FlexBox	
-				height="auto"
-				width="auto"
-				direction="Column"
-				alignItems="Center"
-				justifyContent="Center">
-				<items>	
-					<HBox>			
-						<Title level="H2" text="{i18n>Title}" class="sapUiTinyMarginEnd"/>	
-					</HBox>		
-				</items>
-			</FlexBox>  							
-				
-			<ToolbarSpacer />
-				
 			<Button
 					icon="sap-icon://home"
 					press="onNavHome" />
-			
-		</headerContent>	
+		</headerContent>
 		<subHeader>
 			<Toolbar>
 				<SearchField
@@ -80,10 +60,7 @@
 							<HBox>
 								<core:Icon id="fundHoldingTrend" 
 											src="{ path: 'weight_trend', formatter: 'fonddata.utils.Formatter.trendIcon' }"
-											class="sapUiSmallMarginEnd"/>
-<!-- 
-								<Title level="H2" text="{instrumentnamn}"/>
- -->																			
+											class="sapUiSmallMarginEnd"/>																		
 								<Link level="H2" text="{instrumentnamn}" href="http://www.fonddata.se/#/stockMaster/{isin},%20stockMaster/all"/>
 							</HBox>
 							<HBox>

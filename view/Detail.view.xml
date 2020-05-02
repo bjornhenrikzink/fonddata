@@ -8,29 +8,11 @@
 	busyIndicatorDelay="0">
 	<Page
 		id="detailPage"
-		class="sapUiResponsiveContentPadding">
-		<headerContent>								
-				<Button
-						icon="sap-icon://nav-back"
-						press="onNavBack" />
-
-			<ToolbarSpacer />
-		
-			<FlexBox	
-				height="auto"
-				width="auto"
-				direction="Column"
-				alignItems="Center"
-				justifyContent="Center">
-				<items>	
-					<HBox>			
-						<Title level="H2" text="{i18n>Title}" class="sapUiTinyMarginEnd"/>	
-					</HBox>		
-				</items>
-			</FlexBox>  							
-				
-			<ToolbarSpacer />
-				
+		class="sapUiResponsiveContentPadding"
+		  title="{i18n>Title}"
+		  showNavButton="true"
+          navButtonPress="onNavBack">					
+		<headerContent>
 			<Button
 					icon="sap-icon://home"
 					press="onNavHome" />
@@ -145,7 +127,6 @@
 <!--
  								<Link press="openCompany" level="H2" text="{i18n>Company}" />
  -->						
- 
 						</items>
 					</FlexBox>  	
 					<ToolbarSpacer />

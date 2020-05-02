@@ -9,14 +9,9 @@ sap.ui.define([
 			 var PageController = Controller.extend("fonddata.controller.Home", {		 
 				onInit : function() {
 					this._router = sap.ui.core.UIComponent.getRouterFor(this);	
-					
-//					var sTheme = jQuery.sap.getUriParameters().get("sap-theme"); 
-//					
-//					if(sTheme == "sap_hcb") {
-//						this.getView().byId("themeSwitch").setState(false);						
-//					}
-				},
-								
+                },
+                
+				/*				
 				openHelp: function (oEvent) {					
 					sap.m.URLHelper.redirect("./docs/fonddata.pdf", true);
 				},
@@ -24,6 +19,7 @@ sap.ui.define([
 				openAd: function (oEvent) {					
 					sap.m.URLHelper.redirect("http://www.nordnet.se", true);
 				},
+                */
 
 				openInfo: function (oEvent) {					
 					// create popover
@@ -70,7 +66,6 @@ sap.ui.define([
 					});			
 				},
 				
-				
 				changeTheme : function (oEvent) {
 					var bState = oEvent.getParameter("state");
 					
@@ -112,9 +107,9 @@ sap.ui.define([
 				onNavToStockSearch : function (oEvent) {
 					var type = oEvent.getSource().data("type");
 					
-//					MessageToast.show(type, {
-//					width: "auto"
-//					});
+                    // MessageToast.show(type, {
+                    // width: "auto"
+                    // });
 					
 					this.getRouter().navTo("stockSearch",{
 						type: type				
@@ -122,13 +117,11 @@ sap.ui.define([
 				},		
 		
 				onNavToFundSearch : function (oEvent) {	
-//					this.getRouter().navTo("fundSearch");
-
 					var type = oEvent.getSource().data("type");
 					
-//					MessageToast.show(type, {
-//					width: "auto"
-//					});
+                    // MessageToast.show(type, {
+                    // width: "auto"
+                    // });
 					
 					this.getRouter().navTo("fundSearch",{
 						type: type				

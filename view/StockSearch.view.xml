@@ -2,40 +2,18 @@
 	controllerName="fonddata.controller.StockSearch"
 	xmlns="sap.m"	
 	xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc">
-<!-- 	
-	<Page id="stockSearchPage"	
-		class="sapUiResponsiveContentPadding">
+	xmlns:mvc="sap.ui.core.mvc">		
 		
- -->		
 	<Page id="stockSearchPage" 
-		  class="sapUiResponsiveContentPadding">					
+		  class="sapUiResponsiveContentPadding"
+		  title="{i18n>Title}"
+		  showNavButton="true"
+          navButtonPress="onNavHome">					
 		<headerContent>
-				<Button
-						icon="sap-icon://nav-back"
-						press="onNavHome" />
-
-			<ToolbarSpacer />
-		
-			<FlexBox	
-				height="auto"
-				width="auto"
-				direction="Column"
-				alignItems="Center"
-				justifyContent="Center">
-				<items>	
-					<HBox>			
-						<Title level="H2" text="{i18n>Title}" class="sapUiTinyMarginEnd"/>	
-					</HBox>		
-				</items>
-			</FlexBox>  							
-				
-			<ToolbarSpacer />
-					
 			<Button
 					icon="sap-icon://home"
 					press="onNavHome" />
-		</headerContent>	
+		</headerContent>
 		<subHeader>
 			<Toolbar>
 				<SearchField

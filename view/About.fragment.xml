@@ -6,10 +6,10 @@
 		class="sapUiContentPadding"
 		placement="Vertical">
 		<VBox>
-		<Text text="{i18n>appAboutTextStart}" />
-		<Image src="images/FondDataMindMap.png" width="100%"></Image>		
-		<Text text="{i18n>appAboutTextEnd}" />
-		<Link text="info@fonddata.se" href="mailto:info@fonddata.se" />
+            <Text text="{i18n>appAboutTextStart}" />
+            <Image src="images/FondDataMindMap.png" width="100%"></Image>		
+            <Text text="{i18n>appAboutTextEnd}" />
+            <Link text="info@fonddata.se" href="mailto:info@fonddata.se" />
 		</VBox>
 	</Popover>
 </core:FragmentDefinition>

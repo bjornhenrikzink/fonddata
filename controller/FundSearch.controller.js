@@ -55,7 +55,7 @@ sap.ui.define([
 				this.sort("firma_fond", false);
 			}
 			
-//			this.getView().byId("fundSearchField").setValue("");
+            // this.getView().byId("fundSearchField").setValue("");
 			var sQuery = this.getView().byId("fundSearchField").getValue();
 			this.fundSearch(sQuery);
 		},
@@ -90,7 +90,6 @@ sap.ui.define([
 			binding.filter(aFilters, "Application");
 		},
 		
-		
 		onFundSearch : function (oEvt) { 
 			var sQuery = oEvt.getSource().getValue();
 			this.fundSearch(sQuery);
@@ -119,8 +118,7 @@ sap.ui.define([
 	        });
 	        this._oDialog.setModel(i18nModel, "i18n");			
 	        
-//			this._oDialog.setModel(this.getView().getModel());
-			// toggle compact style
+            // toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
 			this._oDialog.open();
 		},
@@ -173,7 +171,6 @@ sap.ui.define([
 			});			
 		},
 
-		
 		onExit : function () {
 			if (this._oHelpPopover) {
 				this._oHelpPopover.destroy();

@@ -6,8 +6,8 @@
 		class="sapUiContentPadding"
 		placement="Top">
 		<VBox>
-		<Text text="{i18n>companyText}" />
-		<Link text="info@fonddata.se" href="mailto:info@fonddata.se" />
+            <Text text="{i18n>companyText}" />
+            <Link text="info@fonddata.se" href="mailto:info@fonddata.se" />
 		</VBox>
 	</Popover>
 </core:FragmentDefinition>

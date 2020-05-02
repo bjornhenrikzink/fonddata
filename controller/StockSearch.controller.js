@@ -50,7 +50,6 @@
 			    this.getView().byId("listCount").setText("(" + listCount + ")");
 		    }.bind(this));			
 
-//			this.getView().byId("stockSearchField").setValue("");
 			var sQuery = this.getView().byId("stockSearchField").getValue();
 			this.stockSearch(sQuery);
 			
@@ -90,7 +89,6 @@
 		            bundleUrl : "utils/i18n.properties"
 		        });
 		        this._oDialog.setModel(i18nModel, "i18n");			
-//				this._oDialog.setModel(this.getView().getModel());
 
 		        // toggle compact style
 				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
@@ -107,7 +105,7 @@
 				var sortItemKey = sortItem.getProperty("key");
 				var sortDescending = oEvent.getParameters().sortDescending;
 				this.sort(sortItemKey, sortDescending);
-//							MessageToast.show("Sorting: " + sortItem.getProperty("key") + " " + sortItem.getProperty("text"));
+                // MessageToast.show("Sorting: " + sortItem.getProperty("key") + " " + sortItem.getProperty("text"));
 			}
 		},			
 		
@@ -124,9 +122,7 @@
 			var list = this.getView().byId("stockSearchList");
 			var binding = list.getBinding("items");
 			binding.filter(aFilters);
-			
 		},
-		
 		
 		onStockSearch : function (oEvt) { 
 			var sQuery = oEvt.getSource().getValue();
@@ -179,7 +175,6 @@
 			});			
 		},
 
-		
 		onExit : function () {
 			if (this._oHelpPopover) {
 				this._oHelpPopover.destroy();
