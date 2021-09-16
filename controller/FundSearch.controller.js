@@ -25,7 +25,8 @@ sap.ui.define([
 			  var oList = this.getView().byId("fundSearchList");
 			  var oBinding = oList.getBinding("items");
 			  var aSorter = [];
-			  // you may use foo.bar.CustomSorter instead:
+
+			  // You may use foo.bar.CustomSorter instead:
 			  aSorter.push(new sap.ui.model.Sorter(SORTKEY, DESCENDING, GROUP));
 			  oBinding.sort(aSorter);
 		},
@@ -76,7 +77,7 @@ sap.ui.define([
 		},
 		
 		fundSearch : function (sQuery) { 
-			// add filter for search
+			// Add filter for search
 			var aFilters = [];
 
 			if (sQuery && sQuery.length > 0) {
@@ -84,7 +85,7 @@ sap.ui.define([
 				aFilters.push(filter);
 			}
  
-			// update list binding
+			// Update list binding
 			var list = this.getView().byId("fundSearchList");
 			var binding = list.getBinding("items");
 			binding.filter(aFilters, "Application");
@@ -112,13 +113,13 @@ sap.ui.define([
 				this._oDialog = sap.ui.xmlfragment("fonddata.view.SearchViewSettings", this);
 			}
 			
-	        // set i18n model
+	        // Set i18n model
 	        var i18nModel = new sap.ui.model.resource.ResourceModel({
 	            bundleUrl : "utils/i18n.properties"
 	        });
 	        this._oDialog.setModel(i18nModel, "i18n");			
 	        
-            // toggle compact style
+            // Toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
 			this._oDialog.open();
 		},
@@ -142,14 +143,14 @@ sap.ui.define([
 		},
 		
 		openInfo: function (oEvent) {					
-			// create popover
+			// Create popover
 			if (! this._oInfoPopover) {
 				this._oInfoPopover = sap.ui.xmlfragment("fonddata.view.Info", this);
 				this.getView().addDependent(this._oInfoPopover);
 				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oInfoPopover);			
 			}
  
-			// delay because addDependent will do a async rerendering and the actionSheet will immediately close without it.
+			// Delay because addDependent will do a async rerendering and the actionSheet will immediately close without it.
 			var oButton = oEvent.getSource();
 			jQuery.sap.delayedCall(0, this, function () {
 				this._oInfoPopover.openBy(oButton);
@@ -157,14 +158,14 @@ sap.ui.define([
 		},
 		
 		openCompany: function (oEvent) {					
-			// create popover
+			// Create popover
 			if (! this._oCompanyPopover) {
 				this._oCompanyPopover = sap.ui.xmlfragment("fonddata.view.Company", this);
 				this.getView().addDependent(this._oCompanyPopover);
 				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oCompanyPopover);			
 			}
  
-			// delay because addDependent will do a async rerendering and the actionSheet will immediately close without it.
+			// Delay because addDependent will do a async rerendering and the actionSheet will immediately close without it.
 			var oButton = oEvent.getSource();
 			jQuery.sap.delayedCall(0, this, function () {
 				this._oCompanyPopover.openBy(oButton);
