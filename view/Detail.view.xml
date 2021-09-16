@@ -124,18 +124,13 @@
 						alignItems="Center"
 						justifyContent="Center">
 						<items>				
-<!--
- 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
- -->						
+							<!-- <Link press="openCompany" level="H2" text="{i18n>Company}" /> -->						
 						</items>
 					</FlexBox>  	
 					<ToolbarSpacer />
 					
 					<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>																			
-<!-- 
-					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
- -->																						
-							
+					<!-- <Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/> -->																								
 			</Toolbar>
 		</footer>		
 	</Page>

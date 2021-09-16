@@ -31,9 +31,7 @@
 							</HBox>
 			
 				<Text text="{i18n>asset_value}: {path: '/Data/0/andelsvarde', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({ path: '/Data/0/andelsvarde_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
-<!-- 
-				<Text text="{i18n>fund_value}: {path: '/Data/0/marknadsvarde_tot', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({ path: '/Data/0/marknadsvarde_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
- -->				
+				<!-- <Text text="{i18n>fund_value}: {path: '/Data/0/marknadsvarde_tot', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({ path: '/Data/0/marknadsvarde_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/> -->				
 				<Text text="{i18n>fund_equity}: {path: '/Data/0/fondformogenhet', formatter: 'fonddata.utils.Formatter.numberFormat'} SEK ({ path: '/Data/0/fondformogenhet_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
 				<HBox>
 					<Text text="{i18n>asset}"/>
@@ -99,9 +97,7 @@
 						alignItems="Center"
 						justifyContent="Center">
 						<items>				
-<!--
- 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
- -->						
+							<!-- <Link press="openCompany" level="H2" text="{i18n>Company}" /> -->						
 						</items>
 					</FlexBox>  
 						<ToolbarSpacer />
@@ -111,9 +107,7 @@
 							press="" />
  -->
 						<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>														
-<!-- 
-					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
- -->																						
+						<!-- <Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/> -->																						
 			</Toolbar>
 		</footer>			
 	</Page>

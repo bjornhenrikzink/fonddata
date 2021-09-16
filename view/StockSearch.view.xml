@@ -59,22 +59,11 @@
 							</HBox>
 						
 							<Text text="{i18n>isin}: {isin}" class="sapUiSmallMarginBottom"/>
-<!-- 
-							<Text text="{i18n>weight_total}: {total_weight} ({ path: 'total_weight_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
- -->							
+							<!-- <Text text="{i18n>weight_total}: {total_weight} ({ path: 'total_weight_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/> -->
 							<Text text="{i18n>weight_total}: {path: 'total_weight', formatter: 'fonddata.utils.Formatter.pct'} ({ path: 'total_weight_trend', formatter: 'fonddata.utils.Formatter.trendPct' })"/>
 							<Text text="{i18n>market_value_total}: {path: 'total_value', formatter: 'fonddata.utils.Formatter.numberFormat'} ({ path: 'total_value_trend', formatter: 'fonddata.utils.Formatter.trendPct' })" class="sapUiSmallMarginBottom"/>							
 						</VBox>
 				</CustomListItem>														
-<!-- 														
-				<StandardListItem
-					title="{path: 'instrumentnamn', type: 'sap.ui.model.type.String'}"	
-					description="{path: 'isin', formatter: 'fonddata.utils.StringFormatter.stringFormat'}"
-					type="Navigation"
-					press="onStockSearchListItemPressed"
-					iconDensityAware="false"
-					iconInset="false"/>
- -->					
 			</List>																					
 		</content>
 		<footer>
@@ -87,17 +76,15 @@
 						justifyContent="Center">
 						<items>		
 <!--
- 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
-							<Title level="H2" text="{i18n>Company}"/>	
- -->						
-								
+ 								
+								 <Link press="openCompany" level="H2" text="{i18n>Company}" />
+								<Title level="H2" text="{i18n>Company}"/>	
+ -->														
 						</items>
 					</FlexBox>  
 					<ToolbarSpacer />
 					<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>														
-<!-- 
-					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
- -->																							
+					<!-- <Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/> -->																							
 			</Toolbar>
 		</footer>			
 	</Page>

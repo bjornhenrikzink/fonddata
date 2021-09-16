@@ -66,11 +66,8 @@
 								<core:Icon id="stockHoldingTrend" 
 											src="{ path: 'weight_trend', formatter: 'fonddata.utils.Formatter.trendIcon' }"
 											class="sapUiSmallMarginEnd"/>
-<!-- 	
-								<Title level="H2" text="{firma_fond}"/>
- -->										
+								<!-- <Title level="H2" text="{firma_fond}"/> -->									
 								<Link level="H2" text="{firma_fond}" href="http://www.fonddata.se/#/fundMaster/{institutnr_fond},%20fundMaster/all"/>
-
 							</HBox>
 							<HBox>
 								<Label text="{kvartalsslut}: "/>	
@@ -112,22 +109,13 @@
 						alignItems="Center"
 						justifyContent="Center">
 						<items>	
-<!--
- 								<Link press="openCompany" level="H2" text="{i18n>Company}" />
- -->						
+ 								<!-- <Link press="openCompany" level="H2" text="{i18n>Company}" /> -->					
 						</items>
 					</FlexBox>  
 						<ToolbarSpacer />
 						<Button icon="sap-icon://message-information" tooltip="{i18n>information}" press="openInfo"/>																				
-<!-- 
-					<Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/>		
- -->																						
-						
-<!-- 
-						<Button
-							icon="sap-icon://download"
-							press="" />
--->						
+						<!-- <Button icon="sap-icon://sys-help-2" tooltip="{i18n>Help}" press="openHelp"/> -->					
+						<!-- <Button icon="sap-icon://download" press="" /> -->						
 			</Toolbar>
 		</footer>			
 	</Page>
