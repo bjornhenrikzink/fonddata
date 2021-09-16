@@ -118,8 +118,8 @@ sap.ui.define([
 	            bundleUrl : "utils/i18n.properties"
 	        });
 	        this._oDialog.setModel(i18nModel, "i18n");			
-	        
-            // Toggle compact style
+			
+        	// Toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
 			this._oDialog.open();
 		},
