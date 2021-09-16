@@ -9,7 +9,7 @@ sap.ui.define([
 	"use strict";
 	
 	var _type = null;
-    //	var _aFilter = [];
+	//	var _aFilter = [];
 	//	var _oSearchFilter;
 	
 	return BaseController.extend("fonddata.controller.StockMaster", {
