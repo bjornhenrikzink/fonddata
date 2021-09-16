@@ -126,16 +126,16 @@ sap.ui.define([
 		
 		handleConfirm: function (oEvent) {			
 			// Sort			
-				var sortItem = oEvent.getParameters().sortItem;
-				var sortDescending = oEvent.getParameters().sortDescending;
-				
-				if (sortItem) {
-					var sortItemKey = sortItem.getProperty("key");
-					this.sort(sortItemKey, sortDescending);
-				}
-				else {
-					this.sort("firma_fond", sortDescending);					
-				}
+			var sortItem = oEvent.getParameters().sortItem;
+			var sortDescending = oEvent.getParameters().sortDescending;
+			
+			if (sortItem) {
+				var sortItemKey = sortItem.getProperty("key");
+				this.sort(sortItemKey, sortDescending);
+			}
+			else {
+				this.sort("firma_fond", sortDescending);					
+			}
 		},
 		
 		openHelp: function (oEvent) {					
