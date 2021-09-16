@@ -79,7 +79,6 @@
 			}
 		},	
 		
-
 		openAssetViewSettings: function (oEvent) {
 			if (! this._oDialog) {
 				this._oDialog = sap.ui.xmlfragment("fonddata.view.AssetViewSettings", this);
