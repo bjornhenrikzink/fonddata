@@ -72,7 +72,6 @@ sap.ui.define([
 			});			
 		},
 
-		
 		onExit : function () {
 			if (this._oHelpPopover) {
 				this._oHelpPopover.destroy();
